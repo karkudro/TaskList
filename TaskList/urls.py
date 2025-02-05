@@ -1,9 +1,12 @@
 from django.urls import path
-from . views import task_list, add_task, complete_task, delete_task
+from . import views
 
 urlpatterns = [
-    path('', task_list, name='task_list'),
-    path('add/', add_task, name='add_task'),
-    path('complete/<int:task_id>/', complete_task, name='complete_task'),
-    path('delete/<int:task_id>/', delete_task, name='delete_task'),
+    path('', views.profile_view, name='profile'),  # Главная страница с задачами
+    path('complete_task/<int:task_id>/', views.complete_task, name='complete_task'),  # Завершение задачи
+    path('delete_task/<int:task_id>/', views.delete_task, name='delete_task'),  # Удаление задачи
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+    path('register/', views.register_view, name='register'),
 ]
+
