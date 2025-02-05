@@ -95,7 +95,7 @@ def complete_task(request, task_id):
     task.save()
 
     tasks = Task.objects.filter(user=request.user)
-    return render(request, 'accounts/profile.html', {'tasks': tasks})
+    return redirect('profile')
 
 
 @login_required(login_url='login')
